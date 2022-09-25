@@ -29,6 +29,7 @@ service AccountsService {
 message FindOneData {
   string address = 1;
   string name = 2;
+	repeated MetaData = 3;
 }
 
 message FindOneRequest {
@@ -54,13 +55,7 @@ message FindManyResponse {
   repeated FindOneData data = 3;
 }
 
-// DecreaseStock
-
-// message DecreaseStockRequest {
-//   int32 id = 1;
-// }
-
-// message DecreaseStockResponse {
-//   int32 status = 1;
-//   repeated string error = 2;
-// }
+message MetaData {
+	string key = 1;
+	string value = 2;
+}
