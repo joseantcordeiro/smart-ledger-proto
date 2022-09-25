@@ -3,59 +3,54 @@ syntax = "proto3";
 package accounts;
 
 service AccountsService {
-  // rpc CreateProduct (CreateProductRequest) returns (CreateProductResponse) {}
-  rpc FindOne (FindOneRequest) returns (FindOneResponse) {}
-	rpc FindMany (FindManyRequest) returns (FindManyResponse) {}
-  // rpc DecreaseStock (DecreaseStockRequest) returns (DecreaseStockResponse) {}
+  rpc FindOne (FindAccountRequest) returns (FindAccountResponse) {}
+	rpc FindMany (FindAccountsRequest) returns (FindAccountsResponse) {}
 }
 
-// CreateProduct
-
-// message CreateProductRequest {
-//   string name = 1;
-//   string sku = 2;
-//   int32 stock = 3;
-//   double price = 4;
-// }
-
-// message CreateProductResponse {
-//   int32 status = 1;
-//   repeated string error = 2;
-//   int32 id = 3;
-// }
-
-// FindOne
-
-message FindOneData {
+message Account {
   string address = 1;
   string name = 2;
-	repeated MetaData meta = 3;
+	repeated Metadata meta = 3;
 }
 
-message FindOneRequest {
+message Metadata {
+	string key = 1;
+	string value = 2;
+}
+
+message FindAccountRequest {
   string name = 1;
 }
 
-message FindOneResponse {
+message FindAccountResponse {
   int32 status = 1;
   repeated string error = 2;
-  FindOneData data = 3;
+  Account data = 3;
 }
 
-message FindManyRequest {
+message FindAccountsRequest {
   string searchString = 1;
 	int32 take = 2;
 	int32 skip = 3;
 	string orderBy = 4;
 }
 
-message FindManyResponse {
+message FindAccountsResponse {
   int32 status = 1;
   repeated string error = 2;
-  repeated FindOneData data = 3;
+  repeated Account data = 3;
 }
 
-message MetaData {
-	string key = 1;
-	string value = 2;
+message FindMetadataRequest {
+	string name = 1;
+  string searchString = 2;
+	int32 take = 3;
+	int32 skip = 4;
+	string orderBy = 5;
+}
+
+message FindMetadataResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  repeated Metadata data = 3;
 }
