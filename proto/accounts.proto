@@ -5,6 +5,7 @@ package accounts;
 service AccountsService {
   // rpc CreateProduct (CreateProductRequest) returns (CreateProductResponse) {}
   rpc FindOne (FindOneRequest) returns (FindOneResponse) {}
+	rpc FindMany (FindManyRequest) returns (FindManyResponse) {}
   // rpc DecreaseStock (DecreaseStockRequest) returns (DecreaseStockResponse) {}
 }
 
@@ -38,6 +39,19 @@ message FindOneResponse {
   int32 status = 1;
   repeated string error = 2;
   FindOneData data = 3;
+}
+
+message FindManyRequest {
+  string searchString = 1;
+	int32 take = 2;
+	int32 skip = 3;
+	string orderBy = 4;
+}
+
+message FindManyResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  repeated FindOneData data = 3;
 }
 
 // DecreaseStock
