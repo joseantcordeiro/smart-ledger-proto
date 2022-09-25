@@ -29,7 +29,7 @@ service AccountsService {
 message FindOneData {
   string address = 1;
   string name = 2;
-	repeated MetaData = 3;
+	repeated MetaData meta = 3;
 }
 
 message FindOneRequest {
