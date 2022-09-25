@@ -42,10 +42,10 @@ message FindOneResponse {
 }
 
 message FindManyRequest {
-  optional string searchString = 1;
-	optional int32 take = 2;
-	optional int32 skip = 3;
-	optional string orderBy = 4;
+  string searchString = 1;
+	int32 take = 2;
+	int32 skip = 3;
+	string orderBy = 4;
 }
 
 message FindManyResponse {
