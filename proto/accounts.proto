@@ -5,6 +5,7 @@ package accounts;
 service AccountsService {
   rpc FindOne (FindAccountRequest) returns (FindAccountResponse) {}
 	rpc FindMany (FindAccountsRequest) returns (FindAccountsResponse) {}
+	rpc findMetadata (FindMetadataRequest) returns (FindMetadataResponse) {}
 }
 
 message Account {
