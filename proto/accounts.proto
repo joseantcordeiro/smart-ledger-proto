@@ -6,6 +6,7 @@ service AccountsService {
   rpc FindOne (FindAccountRequest) returns (FindAccountResponse) {}
 	rpc FindMany (FindAccountsRequest) returns (FindAccountsResponse) {}
 	rpc FindMetadata (FindMetadataRequest) returns (FindMetadataResponse) {}
+	rpc CreateMetadata (CreateMetadataRequest) returns (CreateMetadataResponse) {}
 }
 
 message Account {
@@ -54,4 +55,15 @@ message FindMetadataResponse {
   int32 status = 1;
   repeated string error = 2;
   repeated Metadata data = 3;
+}
+
+message CreateMetadataRequest {
+  string name = 1;
+	repeated Metadata data = 2;
+}
+
+message CreateMetadataResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  int32 data = 3;
 }
