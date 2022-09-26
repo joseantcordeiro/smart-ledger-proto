@@ -59,7 +59,8 @@ message FindMetadataResponse {
 
 message CreateMetadataRequest {
   string name = 1;
-	repeated Metadata data = 2;
+	string key = 2;
+	string value = 3;
 }
 
 message CreateMetadataResponse {
