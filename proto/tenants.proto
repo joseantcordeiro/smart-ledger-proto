@@ -10,8 +10,8 @@ service TenantsService {
 
 message Tenant {
   string id = 1;
-	string identifier = 2;
-  string name = 3;
+	string name = 2;
+	string identifier = 3;
 	int32 timezone = 4;
 	string country = 5;
 }
