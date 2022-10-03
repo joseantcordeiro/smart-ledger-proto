@@ -11,13 +11,18 @@ message Tenant {
   string id = 1;
 	string name = 2;
 	string identifier = 3;
-	string country = 4;
+	Country country = 4;
 	Timezone timezone = 5;
 }
 
 message Timezone {
 	string value = 1;
 	string text = 2;
+}
+
+message Country {
+	string code = 1;
+	string name = 2;
 }
 
 message FindTenantRequest {
