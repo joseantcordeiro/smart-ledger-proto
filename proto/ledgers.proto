@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package ledgers;
+
+service LedgersService {
+  rpc FindOne (FindLedgerRequest) returns (FindLedgerResponse) {}
+	rpc CreateTenant (CreateLedgerRequest) returns (CreateLedgerResponse) {}
+}
+
+message Ledger {
+  string id = 1;
+	string name = 2;
+	float volumeIn = 3;
+	float volumeOut = 4;
+
+}
+
+message Config {
+	string key = 1;
+	string value = 2;
+}
+
+message FindLedgerRequest {
+  string id = 1;
+}
+
+message FindLedgerResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  Ledger data = 3;
+}
+
+message CreateLedgerRequest {
+  string name = 1;
+}
+
+message CreateLedgerResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  Ledger data = 3;
+}
