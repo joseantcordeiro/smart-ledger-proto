@@ -4,7 +4,6 @@ package tenants;
 
 service TenantsService {
   rpc FindOne (FindTenantRequest) returns (FindTenantResponse) {}
-	rpc FindMany (FindTenantsRequest) returns (FindTenantsResponse) {}
 	rpc CreateTenant (CreateTenantRequest) returns (CreateTenantResponse) {}
 }
 
@@ -12,8 +11,8 @@ message Tenant {
   string id = 1;
 	string name = 2;
 	string identifier = 3;
-	int32 timezone = 4;
-	string country = 5;
+	string country = 4;
+	Timezone timezone = 5;
 }
 
 message Timezone {
@@ -31,24 +30,11 @@ message FindTenantResponse {
   Tenant data = 3;
 }
 
-message FindTenantsRequest {
-  string searchString = 1;
-	int32 take = 2;
-	int32 skip = 3;
-	string orderBy = 4;
-}
-
-message FindTenantsResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  repeated Tenant data = 3;
-}
-
 message CreateTenantRequest {
 	string identifier = 1;
   string name = 2;
-	int32 timezone = 3;
-	string country = 4;
+	string country = 3;
+	int32 timezone = 4;
 }
 
 message CreateTenantResponse {
