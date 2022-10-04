@@ -34,7 +34,8 @@ message FindLedgerResponse {
 }
 
 message CreateLedgerRequest {
-  string name = 1;
+	string tenantId = 1;
+  string name = 2;
 }
 
 message CreateLedgerResponse {
