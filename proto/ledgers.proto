@@ -4,7 +4,7 @@ package ledgers;
 
 service LedgersService {
   rpc FindOne (FindLedgerRequest) returns (FindLedgerResponse) {}
-	rpc CreateTenant (CreateLedgerRequest) returns (CreateLedgerResponse) {}
+	rpc CreateLedger (CreateLedgerRequest) returns (CreateLedgerResponse) {}
 	rpc GetConfiguration (GetConfigurationRequest) returns (GetConfigurationResponse) {}
 	rpc GetConfigurations (GetConfigurationsRequest) returns (GetConfigurationsResponse) {}
 	rpc CreateConfiguration (CreateConfigurationRequest) returns (CreateConfigurationResponse) {}
