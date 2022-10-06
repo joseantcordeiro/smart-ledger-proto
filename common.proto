@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+package common;
+
+service CommonService {
+  rpc TenantDefaultConfiguration (DefaultConfigurationRequest) returns (DefaultConfigurationResponse) {}
+	rpc MetadataDefaultConfiguration (DefaultMetadataRequest) returns (DefaultMetadataResponse) {}
+	rpc FindOneConfiguration (FindOneRequest) returns (FindConfigurationResponse) {}
+	rpc FindManyConfiguration (FindManyRequest) returns (FindConfigurationsResponse) {}
+	rpc FindOneMetadata (FindOneRequest) returns (FindMetadataResponse) {}
+	rpc FindManyMetadata (FindManyRequest) returns (FindMetadatasResponse) {}
+	rpc CreateConfiguration (CreateRequest) returns (CreateConfigurationResponse) {}
+	rpc CreateMetadata (CreateRequest) returns (CreateMetadataResponse) {}
+}
+
+message Configuration {
+  string targetId = 1;
+  string key = 2;
+	string value = 3;
+}
+
+message Metadata {
+	string targetId = 1;
+  string key = 2;
+	string value = 3;
+}
+
+message DefaultConfigurationRequest {
+  string targetId = 1;
+}
+
+message DefaultConfigurationResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  int32 data = 3;
+}
+
+message DefaultMetadataRequest {
+  string targetId = 1;
+}
+
+message DefaultMetadataResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  int32 data = 3;
+}
+
+message FindOneRequest {
+  string targetId = 1;
+	string key = 2;
+}
+
+message FindManyRequest {
+	string targetId = 1;
+  string searchString = 2;
+	int32 take = 3;
+	int32 skip = 4;
+	string orderBy = 5;
+}
+
+message FindConfigurationResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  Configuration data = 3;
+}
+
+message FindConfigurationsResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  repeated Configuration data = 3;
+}
+
+message FindMetadataResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  Metadata data = 3;
+}
+
+message FindMetadatasResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  repeated Metadata data = 3;
+}
+
+message CreateRequest {
+  string targetId = 1;
+	string key = 2;
+	string value = 3;
+}
+
+message CreateConfigurationResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  Configuration data = 3;
+}
+
+message CreateMetadataResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  Metadata data = 3;
+}

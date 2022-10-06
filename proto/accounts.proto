@@ -9,15 +9,18 @@ service AccountsService {
 	rpc CreateMetadata (CreateMetadataRequest) returns (CreateMetadataResponse) {}
 }
 
+enum Status {
+  ACTIVE = 0;
+  SUSPEND = 1;
+  BANNED = 2;
+	DELETED = 3;
+}
+
 message Account {
   string address = 1;
   string name = 2;
-	repeated Metadata meta = 3;
-}
-
-message Metadata {
-	string key = 1;
-	string value = 2;
+	Status status = 4;
+	Ledger ledger = 3;
 }
 
 message FindAccountRequest {
@@ -41,30 +44,4 @@ message FindAccountsResponse {
   int32 status = 1;
   repeated string error = 2;
   repeated Account data = 3;
-}
-
-message FindMetadataRequest {
-	string name = 1;
-  string searchString = 2;
-	int32 take = 3;
-	int32 skip = 4;
-	string orderBy = 5;
-}
-
-message FindMetadataResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  repeated Metadata data = 3;
-}
-
-message CreateMetadataRequest {
-  string name = 1;
-	string key = 2;
-	string value = 3;
-}
-
-message CreateMetadataResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  Metadata data = 3;
 }
