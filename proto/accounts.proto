@@ -22,6 +22,7 @@ message Account {
 
 message FindAccountRequest {
   string name = 1;
+	string ledgerId = 2;
 }
 
 message FindAccountResponse {
@@ -35,6 +36,7 @@ message FindAccountsRequest {
 	int32 take = 2;
 	int32 skip = 3;
 	string orderBy = 4;
+	string ledgerId = 5;
 }
 
 message FindAccountsResponse {
