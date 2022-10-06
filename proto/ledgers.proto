@@ -5,22 +5,11 @@ package ledgers;
 service LedgersService {
   rpc FindOne (FindLedgerRequest) returns (FindLedgerResponse) {}
 	rpc CreateLedger (CreateLedgerRequest) returns (CreateLedgerResponse) {}
-	rpc GetConfiguration (GetConfigurationRequest) returns (GetConfigurationResponse) {}
-	rpc GetConfigurations (GetConfigurationsRequest) returns (GetConfigurationsResponse) {}
-	rpc CreateConfiguration (CreateConfigurationRequest) returns (CreateConfigurationResponse) {}
 }
 
 message Ledger {
   string id = 1;
 	string name = 2;
-	float volumeIn = 3;
-	float volumeOut = 4;
-
-}
-
-message Configuration {
-	string key = 1;
-	string value = 2;
 }
 
 message FindLedgerRequest {
@@ -42,37 +31,4 @@ message CreateLedgerResponse {
   int32 status = 1;
   repeated string error = 2;
   Ledger data = 3;
-}
-
-message GetConfigurationRequest {
-	string id = 1;
-	string key = 2;
-}
-
-message GetConfigurationsRequest {
-	string id = 1;
-}
-
-message CreateConfigurationRequest {
-	string id = 1;
-	string key = 2;
-	string value = 3;
-}
-
-message GetConfigurationResponse {
-	int32 status = 1;
-  repeated string error = 2;
-  Configuration data = 3;
-}
-
-message GetConfigurationsResponse {
-	int32 status = 1;
-  repeated string error = 2;
-  repeated Configuration data = 3;
-}
-
-message CreateConfigurationResponse {
-	int32 status = 1;
-  repeated string error = 2;
-  Configuration data = 3;
 }
