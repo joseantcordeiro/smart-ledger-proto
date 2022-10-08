@@ -5,19 +5,13 @@ package accounts;
 service AccountsService {
   rpc FindOne (FindAccountRequest) returns (FindAccountResponse) {}
 	rpc FindMany (FindAccountsRequest) returns (FindAccountsResponse) {}
-}
-
-enum Status {
-  ACTIVE = 0;
-  SUSPEND = 1;
-  BANNED = 2;
-	DELETED = 3;
+	rpc CreateAccount (FindAccountRequest) returns (FindAccountsResponse) {}
 }
 
 message Account {
   string address = 1;
   string name = 2;
-	Status status = 4;
+	string status = 3;
 }
 
 message FindAccountRequest {
