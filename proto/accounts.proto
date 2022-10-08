@@ -5,7 +5,7 @@ package accounts;
 service AccountsService {
   rpc FindOne (FindAccountRequest) returns (FindAccountResponse) {}
 	rpc FindMany (FindAccountsRequest) returns (FindAccountsResponse) {}
-	rpc CreateAccount (FindAccountRequest) returns (FindAccountsResponse) {}
+	rpc CreateAccount (FindAccountRequest) returns (FindAccountResponse) {}
 }
 
 message Account {
