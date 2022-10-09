@@ -14,19 +14,19 @@ service CommonService {
 }
 
 message Configuration {
-  string targetId = 1;
+  string target_id = 1;
   string key = 2;
 	string value = 3;
 }
 
 message Metadata {
-	string targetId = 1;
+	string target_id = 1;
   string key = 2;
 	string value = 3;
 }
 
 message DefaultConfigurationRequest {
-  string targetId = 1;
+  string target_id = 1;
 }
 
 message CreateMany {
@@ -40,7 +40,7 @@ message DefaultConfigurationResponse {
 }
 
 message DefaultMetadataRequest {
-  string targetId = 1;
+  string target_id = 1;
 }
 
 message DefaultMetadataResponse {
@@ -50,16 +50,16 @@ message DefaultMetadataResponse {
 }
 
 message FindOneRequest {
-  string targetId = 1;
+  string target_id = 1;
 	string key = 2;
 }
 
 message FindManyRequest {
-	string targetId = 1;
-  string searchString = 2;
+	string target_id = 1;
+  string search_string = 2;
 	int32 take = 3;
 	int32 skip = 4;
-	string orderBy = 5;
+	string order_by = 5;
 }
 
 message FindConfigurationResponse {
@@ -87,7 +87,7 @@ message FindMetadatasResponse {
 }
 
 message CreateRequest {
-  string targetId = 1;
+  string target_id = 1;
 	string key = 2;
 	string value = 3;
 }

@@ -26,11 +26,11 @@ message FindAccountResponse {
 }
 
 message FindAccountsRequest {
-  string searchString = 1;
+  string search_string = 1;
 	int32 take = 2;
 	int32 skip = 3;
 	string orderBy = 4;
-	string ledgerId = 5;
+	string ledger_id = 5;
 }
 
 message FindAccountsResponse {

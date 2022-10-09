@@ -23,7 +23,7 @@ message FindLedgerResponse {
 }
 
 message CreateLedgerRequest {
-	string tenantId = 1;
+	string tenant_id = 1;
   string name = 2;
 }
 
