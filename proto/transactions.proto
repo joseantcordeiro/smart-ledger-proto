@@ -18,6 +18,7 @@ message Posting {
 message Batch {
 	string id = 1;
 	string status = 2;
+	int32 counters = 3;
 }
 
 message CreateBatchRequest {
@@ -50,4 +51,5 @@ message UpdateBatchStatusRequest {
 message UpdateBatchStatusResponse {
 	int32 status = 1;
   repeated string error = 2;
+	Batch data = 3;
 }
