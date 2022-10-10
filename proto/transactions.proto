@@ -18,7 +18,7 @@ message Posting {
 message Batch {
 	string id = 1;
 	string status = 2;
-	int32 counters = 3;
+	int32 counter = 3;
 }
 
 message CreateBatchRequest {
