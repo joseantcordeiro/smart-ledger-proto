@@ -17,8 +17,7 @@ message Posting {
 
 message Batch {
 	string id = 1;
-	repeated Posting postings = 2;
-	string status = 3;
+	string status = 2;
 }
 
 message CreateBatchRequest {
