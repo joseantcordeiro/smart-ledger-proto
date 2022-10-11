@@ -44,7 +44,7 @@ message CreateLedgerResponse {
 
 message CreateAssetRequest {
 	string name = 1;
-  string sysbol = 2;
+  string symbol = 2;
 	string ledger_id = 3;
 }
 
