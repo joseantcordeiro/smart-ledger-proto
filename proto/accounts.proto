@@ -18,7 +18,7 @@ message Account {
 message Balance {
   string name = 1;
 	string asset = 2;
-	number amount = 3;
+	float amount = 3;
 }
 
 message FindAccountRequest {
