@@ -17,7 +17,7 @@ message Account {
 
 message Balance {
   string name = 1;
-	string asset = 2;
+	string symbol = 2;
 	float amount = 3;
 }
 
@@ -48,7 +48,7 @@ message FindAccountsResponse {
 
 message FindBalanceRequest {
   string name = 1;
-	string asset = 2;
+	string symbol = 2;
 	string ledger_id = 3;
 }
 
