@@ -6,12 +6,19 @@ service AccountsService {
   rpc FindOne (FindAccountRequest) returns (FindAccountResponse) {}
 	rpc FindMany (FindAccountsRequest) returns (FindAccountsResponse) {}
 	rpc CreateAccount (FindAccountRequest) returns (FindAccountResponse) {}
+	rpc Balance (FindBalanceRequest) returns (FindBalanceResponse) {}
 }
 
 message Account {
   string address = 1;
   string name = 2;
 	string status = 3;
+}
+
+message Balance {
+  string name = 1;
+	string asset = 2;
+	number amount = 3;
 }
 
 message FindAccountRequest {
@@ -38,3 +45,16 @@ message FindAccountsResponse {
   repeated string error = 2;
   repeated Account data = 3;
 }
+
+message FindBalanceRequest {
+  string name = 1;
+	string asset = 2;
+	string ledger_id = 3;
+}
+
+message FindBalanceResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  Balance data = 3;
+}
+
