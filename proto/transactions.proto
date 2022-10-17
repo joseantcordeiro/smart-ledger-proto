@@ -6,13 +6,15 @@ service TransactionsService {
 	rpc CreateBatch (CreateBatchRequest) returns (CreateBatchResponse) {}
 	rpc CreatePosting (CreatePostingRequest) returns (CreatePostingResponse) {}
 	rpc UpdateBatchStatus (UpdateBatchStatusRequest) returns (UpdateBatchStatusResponse) {}
+	rpc CreateDeposit (CreateDepositRequest) returns (CreateBatchResponse) {}
+	rpc CreateWithdrawal (CreateWithdrawalRequest) returns (CreateBatchResponse) {}
 }
 
 message Posting {
 	string source = 1;
 	string destination = 2;
 	string asset = 3;
-	float  value = 4;
+	int32  value = 4;
 }
 
 message Batch {
@@ -53,3 +55,18 @@ message UpdateBatchStatusResponse {
   repeated string error = 2;
 	Batch data = 3;
 }
+
+message CreateDepositRequest {
+	string ledger_id = 1;
+	string destination = 2;
+	string asset = 3;
+	int32	 value = 4;
+}
+
+message CreateWithdrawalRequest {
+	string ledger_id = 1;
+	string source = 2;
+	string asset = 3;
+	int32	 value = 4;
+}
+
